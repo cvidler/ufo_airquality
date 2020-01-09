@@ -55,12 +55,12 @@ Write-Host "City: $city AQI: $aqi"
 #$aqi = 40
 
 #determine colour from aqi
-$colour="top_init=1&bottom_init=1&bottom=0|2|FF0000|3|2|FF0000|6|2|FF0000|9|2|FF0000|12|2|FF0000&bottom_whirl=500" #default to worst - red-whirling
-if ($aqi -le 300){ $colour="top_init=1&bottom_init=1&bottom=0|15|FF0000"} #red
-if ($aqi -le 200){ $colour="top_init=1&bottom_init=1&bottom=0|15|CC0033"} #purple
-if ($aqi -le 150){ $colour="top_init=1&bottom_init=1&bottom=0|15|FF4400"} #orange
-if ($aqi -le 100){ $colour="top_init=1&bottom_init=1&bottom=0|15|FFFF00"} #yellow
-if ($aqi -le  50){ $colour="top_init=1&bottom_init=1&bottom=0|15|00FF00"} #green
+$colour="bottom_init=1&bottom=0|2|FF0000|3|2|FF0000|6|2|FF0000|9|2|FF0000|12|2|FF0000&bottom_whirl=500" #default to worst - red-whirling
+if ($aqi -le 300){ $colour="bottom_init=1&bottom=0|15|FF0000"} #red
+if ($aqi -le 200){ $colour="bottom_init=1&bottom=0|15|CC0033"} #purple
+if ($aqi -le 150){ $colour="bottom_init=1&bottom=0|15|FF4400"} #orange
+if ($aqi -le 100){ $colour="bottom_init=1&bottom=0|15|FFff00"} #yellow
+if ($aqi -le  50){ $colour="bottom_init=1&bottom=0|15|00FF00"} #green
 #Write-Host $colour 
 
 #send to UFO
