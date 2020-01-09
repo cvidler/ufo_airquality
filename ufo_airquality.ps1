@@ -44,11 +44,18 @@ function restApiGet {
 #use the geoip lookup API 'here' - zero config needed :).
 $waqiurl = "https://api.waqi.info/feed/here/?token=" + $waqitoken
 
+#use the city location API, use if the geoip locates you incorrectly.
+#$waqiurl = "https://api.waqi.info/feed/?token=" + $waqitoken
+
+
 # get current WAQI data
 $waqidata = restApiGet($waqiurl)
 $aqi = $waqidata.data.aqi
 $city = $waqidata.data.city.name
-Write-Host "City: $city AQI: $aqi"
+$attrs = ""
+foreach ( $attr in $waqidata.data.attributions) { $attrs = "$($attrs)  $($attr.name): $($attr.url)`n" }
+#$attrs = $waqidata.data.attributions.name + $waqidata.data.attributions.url
+Write-Host "City: $city `nAQI: $aqi ("$waqidata.data.dominentpol")`nSources:`n$attrs"
 
 
 #manually set value to test colours
